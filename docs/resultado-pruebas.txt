@@ -1,0 +1,28 @@
+
+> cada-dia-g01@1.0.0 test
+> node --test "tests/*.test.js"
+
+✔ RF-01: existen las tres opciones de estado (0.6277ms)
+✔ RF-07: el botón "Necesito ayuda" está en el banner (0.1737ms)
+✔ RF-08: el aviso de ayuda es un <dialog> con Sí y No (0.0983ms)
+✔ Flujo del MVP: inicio, contenido, completado y avisado (sin medicación ni favoritos) (0.1585ms)
+✔ Error: existe el mensaje de almacenamiento no disponible con role="alert" (0.1069ms)
+✔ RNF-04: la página es responsive (viewport) (0.0703ms)
+✔ RF-02: registrar un estado válido lo guarda con fecha y hora (2.7116ms)
+✔ RF-02: los datos persisten al recrear el almacén (0.211ms)
+✔ Error: un estado inválido se rechaza y no se guarda nada (0.1676ms)
+✔ Error / RNF-06: con almacenamiento bloqueado la app sigue y avisa de que no guarda (0.2151ms)
+✔ Error: sin almacenamiento (null) tampoco falla (0.2673ms)
+✔ Error: datos corruptos en el almacenamiento se ignoran (0.209ms)
+✔ Límite: volver a abrir el mismo día muestra el último estado y permite cambiarlo (0.1873ms)
+✔ Límite: el estado de ayer no cuenta como el de hoy (0.1825ms)
+✔ RF-09 / límite: un aviso repetido en menos de 60 s no se vuelve a registrar (0.3041ms)
+✔ C-DAT-1: solo se guardan nombre, estados y avisos, y con un máximo (0.8854ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 113.1814

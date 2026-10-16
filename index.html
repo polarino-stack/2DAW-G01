@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2563EB">
+  <title>Cada Día</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="banner">
+    <span class="brand">CADA DIA</span>
+    <button type="button" class="btn btn-help" id="open-help">Necesito ayuda</button>
+  </header>
+
+  <p class="warning" id="storage-warning" role="alert" hidden>No podemos guardar tus respuestas en este dispositivo. Puedes seguir usando Cada Día, pero no quedarán guardadas.</p>
+
+  <main id="main" tabindex="-1">
+
+    <!-- 01 Inicio: estado -->
+    <section class="screen" data-screen="inicio" aria-labelledby="t-inicio">
+      <h1 id="t-inicio"><span data-greeting>Buenos días</span>, Carmen</h1>
+      <p class="lead">¿Cómo te encuentras hoy?</p>
+      <p class="lead previo" id="previo" hidden></p>
+      <div class="states">
+        <button type="button" class="state state-bien" data-state="bien">
+          <span class="state-icon" aria-hidden="true">😊</span><span>Bien</span>
+        </button>
+        <button type="button" class="state state-regular" data-state="regular">
+          <span class="state-icon" aria-hidden="true">😐</span><span>Regular</span>
+        </button>
+        <button type="button" class="state state-mal" data-state="mal">
+          <span class="state-icon" aria-hidden="true">😟</span><span>Mal</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 02 Contenido del día -->
+    <section class="screen" data-screen="contenido" aria-labelledby="t-contenido" hidden>
+      <h1 id="t-contenido">Gracias, Carmen. Ya hemos anotado tu estado.</h1>
+      <article class="card">
+        <svg class="photo" viewBox="0 0 320 180" role="img" aria-label="Foto familiar: Lucas montando en bici">
+          <rect width="320" height="180" fill="#DBEAFE"/>
+          <circle cx="262" cy="42" r="22" fill="#FDE68A"/>
+          <path d="M0 140 Q80 110 160 135 T320 125 V180 H0Z" fill="#BBF7D0"/>
+          <circle cx="110" cy="132" r="22" fill="none" stroke="#1E3A8A" stroke-width="5"/>
+          <circle cx="190" cy="132" r="22" fill="none" stroke="#1E3A8A" stroke-width="5"/>
+          <path d="M110 132 L145 100 L190 132 M145 100 L135 100 M160 100 L172 100 L190 132" fill="none" stroke="#1E3A8A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="150" cy="78" r="12" fill="#F59E0B"/>
+          <path d="M145 92 L148 100" stroke="#1E3A8A" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+        <p class="quote"><strong>María, tu hija:</strong> «¡Buenos días, mamá! Ayer Lucas aprendió a montar en bici. Mira qué contento estaba.»</p>
+      </article>
+      <article class="card card-news">
+        <p><strong>Hoy en tu barrio:</strong> concierto de piano, 18:00, en la Casa de Cultura.</p>
+      </article>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" data-go="completado">Continuar</button>
+        <button type="button" class="btn btn-secondary" data-go="inicio">Atrás</button>
+      </div>
+    </section>
+
+    <!-- 04 Registro completado -->
+    <section class="screen screen-center" data-screen="completado" aria-labelledby="t-ok" hidden>
+      <div class="success" aria-hidden="true">✓</div>
+      <h1 id="t-ok">Hecho. <span data-family-msg>Tu familia ya sabe que estás bien.</span></h1>
+      <p class="lead">Gracias por contárnoslo, Carmen.</p>
+      <button type="button" class="btn btn-danger" id="offer-help" hidden>Avisar a mi familia</button>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" data-go="inicio">Volver al inicio</button>
+      </div>
+    </section>
+
+    <!-- 05 Aviso enviado (confirmación tras "Sí, avisar") -->
+    <section class="screen screen-center" data-screen="avisado" aria-labelledby="t-avisado" hidden>
+      <div class="success" aria-hidden="true">✓</div>
+      <h1 id="t-avisado">Aviso enviado.</h1>
+      <p class="lead">Tu familia ya lo sabe y te llamará enseguida. Mantén la calma.</p>
+      <p class="lead" id="aviso-repetido" hidden>Ya habíamos avisado a tu familia hace un momento.</p>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" data-go="inicio">Volver al inicio</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- 06 Ayuda (overlay) -->
+  <dialog id="help-dialog" aria-labelledby="t-help">
+    <h2 id="t-help">¿Quieres avisar a tu familia?</h2>
+    <p class="lead">Les llegará un aviso ahora mismo para que te llamen.</p>
+    <div class="actions">
+      <button type="button" class="btn btn-danger" id="help-yes">Sí, avisar</button>
+      <button type="button" class="btn btn-secondary" id="help-no">No, estoy bien</button>
+    </div>
+  </dialog>
+
+  <div class="sr-only" id="live" role="status" aria-live="polite"></div>
+  <script src="src/store.js"></script>
+  <script src="src/app.js"></script>
+</body>
+</html>

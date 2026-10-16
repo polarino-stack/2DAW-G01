@@ -1,0 +1,86 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Presentacion G01</title>
+<style>
+@page{size:1280px 720px;margin:0}
+*{box-sizing:border-box}
+body{margin:0;font-family:Segoe UI,Arial,sans-serif;color:#111827}
+.s{width:1280px;height:720px;padding:48px 64px;page-break-after:always;position:relative;overflow:hidden}
+.s:last-child{page-break-after:auto}
+h1{font-size:44px;margin:0 0 20px;color:#2563EB}
+h2{font-size:38px;margin:0 0 22px;color:#2563EB}
+li,p{font-size:24px;line-height:1.4}
+ul{margin:0;padding-left:28px}
+.cover{background:#2563EB;color:#fff;display:flex;flex-direction:column;justify-content:center}
+.cover h1{color:#fff;font-size:72px}.cover p{font-size:30px}
+.row{display:flex;gap:24px;align-items:flex-start}
+.row img{border:1px solid #bbb;max-width:100%}
+.cap{font-size:16px;color:#555;margin:4px 0}
+table{border-collapse:collapse;width:100%;font-size:21px}td,th{border:1px solid #bbb;padding:8px;text-align:left}th{background:#e8efff}
+.foot{position:absolute;bottom:18px;right:64px;font-size:14px;color:#777}
+</style></head><body>
+
+<div class="s cover"><h1>Cada Día</h1><p>Un toque al día para que las personas mayores que viven solas<br>y sus familias estén tranquilas</p><p style="margin-top:40px;font-size:24px">Grupo G01 · Proyecto intermodular DAM/DAW · Tema: la soledad de las personas mayores</p></div>
+
+<div class="s"><h2>Problema y usuarios</h2><ul>
+<li>Muchas personas mayores viven solas y quieren mantener su independencia.</li>
+<li>Las familias viven con la duda constante: «¿estará bien hoy?».</li>
+<li>Las alternativas fallan: cámaras y sensores intrusivos, o una llamada diaria fría y difícil de sostener.</li>
+<li><b>Usuaria principal:</b> persona mayor con baja competencia digital (personaje ficticio: Carmen).</li>
+<li><b>Familiar:</b> quiere tranquilidad y contacto (personaje ficticio: María).</li>
+</ul><div class="foot">G01</div></div>
+
+<div class="s"><h2>La solución</h2><ul>
+<li>Se entra con un <b>enlace directo</b>: sin app ni contraseñas.</li>
+<li>Un toque: <b>Bien / Regular / Mal</b>.</li>
+<li>A cambio, contenido afectivo y local del día.</li>
+<li>Confirmación: «Tu familia ya sabe que estás bien».</li>
+<li>Botón <b>«Necesito ayuda»</b> siempre visible.</li>
+<li>Accesible: botones de 69 px, texto grande, alto contraste.</li>
+</ul><div class="foot">G01</div></div>
+
+<div class="s"><h2>De la ideación al MVP</h2><table>
+<tr><th>Fase</th><th>Qué hicimos</th><th>Resultado</th></tr>
+<tr><td>Design Thinking</td><td>5 «¿Por qué?», causa raíz, propuesta de valor</td><td>Idea Cada Día</td></tr>
+<tr><td>Figma</td><td>Pantallas desktop y móvil, componentes, Ready for dev</td><td>Prototipo</td></tr>
+<tr><td>SDD</td><td>constitution, AGENTS, spec, plan, tasks</td><td>Alcance y requisitos EARS</td></tr>
+<tr><td>MVP</td><td>HTML + CSS + JS, 16 pruebas automáticas</td><td>Piloto ejecutable</td></tr>
+</table><div class="foot">G01</div></div>
+
+<div class="s"><h2>Del Figma al MVP</h2><div class="row">
+<div><img src="figma_01_inicio.png" width="580"><p class="cap">Figma: 01 Inicio</p></div>
+<div><img src="app_d1.png" width="580"><p class="cap">MVP: inicio</p></div></div><div class="foot">G01</div></div>
+
+<div class="s"><h2>Demo: flujo principal</h2><div class="row">
+<div><img src="app_d1.png" width="380"><p class="cap">1. Elegir estado</p></div>
+<div><img src="app_d2.png" width="380"><p class="cap">2. Contenido del día</p></div>
+<div><img src="app_d3.png" width="380"><p class="cap">3. Tu familia ya lo sabe</p></div></div><div class="foot">G01</div></div>
+
+<div class="s"><h2>Demo: situación de error y casos límite</h2><ul>
+<li><b>Error:</b> si el navegador bloquea el almacenamiento, la app sigue funcionando y avisa: «No podemos guardar tus respuestas en este dispositivo».</li>
+<li><b>Límite:</b> si ya indicó su estado hoy, se le muestra y puede cambiarlo.</li>
+<li><b>Límite:</b> un aviso repetido en menos de 1 minuto no se duplica; se informa a la usuaria.</li>
+<li><b>Estado «Mal»:</b> la confirmación ofrece avisar a la familia.</li>
+</ul><div class="foot">G01</div></div>
+
+<div class="s"><h2>Decisiones técnicas y de alcance</h2><ul>
+<li><b>HTML + CSS + JS sin dependencias:</b> pocas pantallas, fácil de ejecutar y de defender.</li>
+<li><b>Lógica separada</b> (<code>src/store.js</code>) para poder probarla sin navegador.</li>
+<li><b>localStorage</b> y datos mínimos: protección de datos de salud.</li>
+<li><b>Fuera del MVP:</b> medicación, favoritos, panel familiar, notificaciones reales.</li>
+<li><b>Servicio simulado:</b> el aviso a la familia solo se registra en el dispositivo.</li>
+</ul><div class="foot">G01</div></div>
+
+<div class="s"><h2>Uso de IA y revisión crítica</h2><ul>
+<li>Claude Code (Claude Sonnet 5.5), modo agente.</li>
+<li><b>Propuesta aceptada:</b> reducir el MVP a 4 funcionalidades.</li>
+<li><b>Corregido:</b> la primera ejecución de pruebas falló y se arregló; las capturas se repitieron.</li>
+<li><b>Declarado:</b> la IA no pudo probar clics ni teclado reales; consta como no validado.</li>
+<li>Cada integrante explica el código y las decisiones.</li>
+</ul><div class="foot">G01</div></div>
+
+<div class="s"><h2>Validación y limitaciones</h2><ul>
+<li><b>16/16 pruebas automáticas</b> correctas (<code>npm test</code>).</li>
+<li>Contraste mínimo 4,83:1 (WCAG AA).</li>
+<li><b>No validado:</b> interacción real en navegador, Lighthouse, test de usabilidad con otra persona.</li>
+<li><b>Siguientes pasos:</b> aviso real a la familia, vista del familiar, contenido diario automático.</li>
+</ul><div class="foot">G01</div></div>
+</body></html>

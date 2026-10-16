@@ -1,0 +1,9 @@
+texto sobre blanco 17.74
+blanco sobre azul banner 5.17
+azul sobre blanco (btn secundario) 5.17
+texto sobre tarjeta 16.10
+texto sobre Bien 16.15
+texto sobre Regular 15.93
+texto sobre Mal 14.52
+blanco sobre rojo (btn ayuda) 4.83
+texto sobre aviso 15.93

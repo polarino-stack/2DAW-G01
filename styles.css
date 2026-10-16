@@ -1,0 +1,152 @@
+:root {
+  /* Tokens (aproximados del Figma; el Figma no define variables) */
+  --primary: #2563EB;
+  --primary-dark: #1D4ED8;
+  --text: #111827;
+  --card: #EFF4FF;
+  --bien: #16A34A;     --bien-bg: #DCFCE7;
+  --regular: #D97706;  --regular-bg: #FEF3C7;
+  --mal: #DC2626;      --mal-bg: #FEE2E2;
+  --radius: 20px;
+  --btn-h: 69px;
+  --banner-h: 96px;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 20px; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: #fff;
+  line-height: 1.45;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* Banner fijo con "Necesito ayuda" siempre visible */
+.banner {
+  position: sticky; top: 0; z-index: 10;
+  height: var(--banner-h);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 32px;
+  background: var(--primary);
+  color: #fff;
+}
+.brand { font-weight: 800; font-size: 1.5rem; letter-spacing: .08em; }
+
+main {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 40px 24px 64px;
+  outline: none;
+}
+
+.screen[hidden] { display: none; }
+.screen { animation: fade .25s ease; }
+.screen-center { text-align: center; }
+@keyframes fade { from { opacity: 0; transform: translateY(6px); } }
+@media (prefers-reduced-motion: reduce) { .screen { animation: none; } }
+
+h1 { font-size: 2.2rem; font-weight: 400; line-height: 1.2; margin: 0 0 16px; }
+h2 { font-size: 1.8rem; font-weight: 400; margin: 0 0 12px; }
+.lead { font-size: 1.25rem; margin: 0 0 28px; }
+
+/* Botones */
+.btn {
+  font: inherit; font-weight: 600; font-size: 1.15rem;
+  min-height: var(--btn-h);
+  padding: 0 32px;
+  border-radius: 14px;
+  border: 3px solid var(--primary);
+  cursor: pointer;
+  transition: background .15s, color .15s, transform .05s;
+}
+.btn:active { transform: scale(.98); }
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-secondary { background: #fff; color: var(--primary); }
+.btn-secondary:hover { background: var(--card); }
+.btn-danger { background: var(--mal); border-color: var(--mal); color: #fff; }
+.btn-danger:hover { background: #B91C1C; }
+.btn-help { min-height: 56px; padding: 0 24px; background: #fff; color: var(--primary); border-color: #fff; }
+.btn-help:hover { background: var(--card); }
+
+:focus-visible { outline: 4px solid #F59E0B; outline-offset: 3px; }
+
+.actions { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 28px; }
+.screen-center .actions { justify-content: center; }
+
+/* Tarjetas de estado */
+.states { display: flex; gap: 24px; flex-wrap: wrap; }
+.state {
+  flex: 1 1 240px; min-height: 180px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  font: inherit; font-size: 1.8rem; font-weight: 700; color: var(--text);
+  border: 4px solid; border-radius: var(--radius);
+  cursor: pointer; transition: transform .1s, box-shadow .15s;
+}
+.state-icon { font-size: 3rem; line-height: 1; }
+.state:hover { transform: translateY(-3px); box-shadow: 0 8px 18px rgba(0,0,0,.12); }
+.state:active { transform: scale(.98); }
+.state-bien    { background: var(--bien-bg);    border-color: var(--bien); }
+.state-regular { background: var(--regular-bg); border-color: var(--regular); }
+.state-mal     { background: var(--mal-bg);     border-color: var(--mal); }
+
+/* Tarjetas de contenido */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 20px;
+  max-width: 820px;
+}
+.card p { margin: 0 0 12px; font-size: 1.2rem; }
+.card p:last-child { margin-bottom: 0; }
+.photo { width: 100%; max-height: 260px; border-radius: 14px; margin-bottom: 16px; display: block; }
+.card .btn { margin-top: 8px; }
+
+.warning { margin: 0; padding: 14px 32px; background: var(--regular-bg); border-bottom: 3px solid var(--regular); font-size: 1.1rem; font-weight: 600; }
+.previo { font-weight: 600; }
+#offer-help { margin-top: 20px; }
+
+/* Éxito */
+.success {
+  width: 96px; height: 96px; margin: 8px auto 24px;
+  display: grid; place-items: center;
+  border-radius: 50%; background: var(--bien); color: #fff;
+  font-size: 3.2rem; font-weight: 700;
+}
+
+/* Overlay de ayuda */
+dialog {
+  max-width: 560px; width: calc(100% - 32px);
+  border: none; border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.35);
+}
+dialog::backdrop { background: rgba(17, 24, 39, .6); }
+dialog .actions { flex-direction: column; }
+dialog .btn { width: 100%; }
+
+/* Móvil: una columna, botones a ancho completo */
+@media (max-width: 768px) {
+  :root { --banner-h: 71px; }
+  html { font-size: 18px; }
+  .banner { padding: 0 16px; }
+  .brand { font-size: 1.2rem; }
+  .btn-help { min-height: 48px; padding: 0 16px; font-size: 1rem; }
+  main { padding: 28px 16px 48px; }
+  h1 { font-size: 1.8rem; }
+  .states { flex-direction: column; gap: 16px; }
+  .state { flex: none; min-height: 112px; width: 100%; flex-direction: row; gap: 16px; }
+  .actions { flex-direction: column; }
+  .actions .btn { width: 100%; }
+    dialog { padding: 24px; }
+}
