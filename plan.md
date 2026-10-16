@@ -51,7 +51,7 @@ Solo nombre, estados y avisos (minimización, RNF-06). Sin identificadores perso
 - Riesgo: alcance creciente → se aplica la lista de "Excluido" de `spec.md`.
 
 ## 7. Revisión del equipo
-Estado: **implementado en el MVP entregado**. Revisión del equipo: pendiente de confirmar por los cuatro integrantes (G01-01 a G01-04).
+Estado: **implementado en el MVP entregado**. Revisión del equipo: pendiente de confirmar por el grupo.
 
 ## 8. Cambios respecto a la versión anterior
 - Se separó la lógica en `src/store.js` para poder probarla de forma automática.

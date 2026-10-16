@@ -1,4 +1,4 @@
-# Cada Día — MVP (grupo G01)
+# Cada Día — MVP (grupo 2DAW-G01)
 
 Proyecto intermodular DAM/DAW · Tema: la soledad de las personas mayores.
 
